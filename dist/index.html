@@ -4,13 +4,108 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Webpack Starter Kit</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+  <title>Le Chateaux Bekker Extraordinaire</title>
 </head>
 <body>
-  <img src="./images/turing-logo.png" alt="turing logo">
-  
-  <!-- Do not include the scripts.js or class files here - it is done by the webpack server -->
-  <script src="bundle.js"></script>
-
+  <div class="user-msg" id="userMessage" aria-hidden="true">
+    <button class="exit-button button" aria-label="Exit" tabindex="0"></button>
+    <h2 class="user-message-header" id="message"></h2>
+  </div>
+  <form class="search-bar main-page" id="searchForm" aria-hidden="true">
+    <input type="date" class="search-bar-input date" id="dateInput" value="" required>
+    <label for="dateInput" class="date-label">Date</label>
+    <div class="search-bar-input clickable" tabindex="0" aria-role="button">
+      <h3 class="search-bar-input-header">
+        <span class="search-bar-input-header-main">Room Type</span>
+        <span class="search-bar-input-header-sub">Room Preference</span>
+      </h3>
+      <div class="drop-down-menu" aria-hidden="true">
+        <input type="checkbox" class="search-bar-input-room room-type" name="single room" value="single room" id="singleRoom">
+        <label for="singleRoom">Single Room</label><br>
+        <input type="checkbox" class="search-bar-input-room room-type" name="petite suite" value="petite suite" id="petiteSuite">
+        <label for="petiteSuite">Suite</label><br>
+        <input type="checkbox" class="search-bar-input-room room-type" name="deluxe suite" value="deluxe suite" id="deluxeSuite">
+        <label for="deluxeSuite">Deluxe Suite</label><br>
+        <input type="checkbox" class="search-bar-input-room room-type" name="chalet royal" value="chalet royal" id="chaletRoyal">
+        <label for="chaletRoyal">Chalet Royal</label><br>
+      </div>
+    </div>
+    <div class="search-bar-input clickable" tabindex="0" aria-role="button">
+      <h3 class="search-bar-input-header">
+        <span class="search-bar-input-header-main">Bed Size</span>
+        <span class="search-bar-input-header-sub">Pick Bed Size</span>
+      </h3>
+      <div class="drop-down-menu input" aria-hidden="true">
+        <input type="checkbox" class="search-bar-input-room bed-size" name="twin" value="twin" id="twin">
+        <label for="twin">Twin</label><br>
+        <input type="checkbox" class="search-bar-input-room bed-size" name="full" value="full" id="full">
+        <label for="full">Full</label><br>
+        <input type="checkbox" class="search-bar-input-room bed-size" name="queen" value="queen" id="queen">
+        <label for="queen">Queen</label><br>
+        <input type="checkbox" class="search-bar-input-room bed-size" name="king" value="king" id="king">
+        <label for="king">King</label>
+      </div>
+    </div>
+    <div class="search-bar-input clickable" tabindex="0" aria-role="button">
+      <h3 class="search-bar-input-header">
+        <span class="search-bar-input-header-main">Beds</span>
+        <span class="search-bar-input-header-sub">Beds Per Room</span>
+      </h3>
+      <div class="drop-down-menu input" aria-hidden="true">
+        <input type="checkbox" class="search-bar-input-room number-of-beds" name="1" value="1" id="one">
+        <label for="one">1 Bed</label><br>
+        <input type="checkbox" class="search-bar-input-room number-of-beds" name="2" value="2" id="two">
+        <label for="two">2 Beds</label><br>
+      </div>
+    </div>
+    <button class="search-bar-button button" id="searchButton" aria-label="search" tabindex="0"></button>
+  </form>
+  <header class="header main-page" aria-hidden="true">
+    <h1 class="header-title">
+      <span class="header-title-main">Le Chateaux Bekker Extraordinaire</span>
+      <span class="header-title-sub">Exuberance is Beauty</span>
+    </h1>
+  </header>
+  <section class="login-page" id="loginPage">
+    <div class="login-page-form-container">
+      <h1 class="login-page-header">Bienvenue!<br>Please Login</h1>
+      <form class="login-page-form" id="loginForm">
+        <label for="usernameNameInput">
+          <input type="text" class="login-form-input" name="userName" placeholder="Username" id="userNameInput" required>
+        </label>
+        <label for="passwordInput">
+          <input type="password" class="login-form-input" name="password" placeholder="Password" id="passwordInput" required>
+        </label>
+        <input type="Submit" placeholder="Login" class="login-form-input login-page-form-button button" id="loginButton" value="Log In">
+      </form>
+      <h2 class="login-error-message" id="errorMessage" aria-hidden="true">Please convey the correct login information</h2>
+    </div>
+  </section>
+  <main class="main main-page" aria-hidden="true">
+    <div class="hotel-points" tabindex="0">
+      <div class="rewards-container">
+        <h2 class="hotel-rewards-name" id="guestName"></h2>
+        <h2 class="hotel-rewards-header">Your Rewards</h2>
+        <p class="hotel-rewards-earned" id="rewardsEarned"></p>
+      </div>
+      <p class="hotel-rewards-tag-line">
+        Garner rewards for lavishing yourself.<br>Stay with us for more rewards.
+      </p>
+      <img src="" alt="" class="hotel-rewards-img">
+    </div>
+    <div class="available-rooms" id="availableRooms"></div>
+    <div class="booked-rooms">
+      <h1 class="booked-room-header">
+        Your Stays
+      </h1>
+      <div class="booked-room-container" id="bookedRooms"></div>
+      <div class="booked-room-img-container">
+        <img src="" alt="" class="booked-room-img">
+      </div>
+    </div<
+  </main>
+<script src="bundle.js"></script>
 </body>
 </html>
