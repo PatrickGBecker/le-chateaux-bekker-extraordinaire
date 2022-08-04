@@ -16,7 +16,7 @@ describe('Guest', () => {
 
   it('Should have an id and name', () => {
     expect(guest.name).to.deep.equal('Fleta Schuppe');
-    expect(customer.id).to.deep.equal(6)
+    expect(guest.id).to.deep.equal(6)
   });
 
   it('Should be able to see their booking history', () => {
@@ -47,9 +47,9 @@ describe('Guest', () => {
     expect(guest.returnBookingHistory(chateauxBekker)).to.deep.equal(roomsBooked);
   })
 
-  it('SHould let you know if you have not booked rooms', () => {
-    const guet = new Guest({id: 33, name: "Monsieur Patric Bekker"});
+  it('Should let you know if you have not booked rooms', () => {
+    const guest = new Guest({id: 33, name: "Monsieur Patric Bekker"});
     expect(guest.returnBookingHistory(chateauxBekker)).to.deep.equal([]);
   })
-  
+
 });

@@ -69,8 +69,24 @@ describe('Person behavior', () => {
   });
 
   it('Should return all rooms booked for past and present based on id', () => {
+    expect(person.returnBookingHistory(chateauxBekker, 6)).to.deep.equal(customerBookings);
+  });
+
+  it('Should let you know if no rooms have been booked', () => {
     expect(person.returnBookingHistory(chateauxBekker, 33)).to.deep.equal([])
   });
 
-  
+  it('Should return a list of Hotel rooms data', () => {
+    expect(person.findSpecificRooms(chateauxBekker, 6)).to.deep.equal(roomsBooked)
+  });
+
+  it('Should return the amount of money spent at the hotel', () => {
+   expect(person.returnTotalBookingCost(chateauxBekker, 6)).to.equal(1181.59)
+   expect(person.returnTotalBookingCost(chateauxBekker, 33)).to.equal(0)
+ });
+
+ it('Should be able to see how many points are earned', () => {
+   expect(person.returnPointsEarned(chateauxBekker, 6)).to.deep.equal(118);
+   expect(person.returnPointsEarned(chateauxBekker, 33)).to.deep.equal(0);
+ })
 })
