@@ -101,5 +101,25 @@ it('Should return all rooms if no search input entered', () => {
   expect(chateauxBekker.filterRoomsBySearchCriteria(chateauxBekker.rooms, [], 'numBeds')).to.deep.equal(chateauxBekker.rooms)
   });
 
+it('Should return filtered search results for all categories', () => {
+  chateauxBekker.bookings = data.bookingsForSearch;
+  const search = chateauxBekker.returnAllFilteredResults('2022/08/31', ["junior suite","suite"], ["full"], ["2"])
 
-})
+  expect(search).to.deep.equal([
+        {
+          number: 2,
+          roomType: 'suite',
+          bidet: false,
+          bedSize: 'full',
+          numBeds: 2,
+          costPerNight: 477.38
+        }
+      ]);
+    })
+
+    it('Should not work if no date is selected', () => {
+      const search = chateauxBekker.returnAllFilteredResults('', ["junior", "suite-suite"], "full", "2");
+      expect(search).to.deep.equal(false);
+    });
+
+  })

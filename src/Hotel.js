@@ -5,7 +5,7 @@ class Hotel {
     this.bookings = bookings;
     this.customers = customers
   }
-  
+
   checkAvailableRooms(checkIn) {
     const today = new Date();
     today.setHours(0,0,0,0);
@@ -30,7 +30,19 @@ class Hotel {
     return foundRooms;
   }, []);
   return results;
-}
+  }
+
+  returnAllFilteredResults(date, typeOfRoom, sizeOfBed, numberOfBeds) {
+    const availableRooms = this.checkAvailableRooms(date)
+    if (availableRooms === false) {
+      return false
+    }
+    const byType = this.filterRoomsBySearchCriteria(availableRooms, typeOfRoom, 'roomType');
+    const byBedSize = this.filterRoomsBySearchCriteria(byType, sizeOfBed, 'bedSize');
+    const byNumberOfBeds = this.filterRoomsBySearchCriteria(byBedSize, numberOfBeds, 'numBeds');
+    const finalResult = byNumberOfBeds;
+    return finalResult;
+  }
 
 }
 
