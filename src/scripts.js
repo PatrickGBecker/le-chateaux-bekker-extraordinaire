@@ -288,4 +288,4 @@ searchButton.addEventListener('click', displaySearchResults);
 availableRoomsSection.addEventListener('click', makeReservation);
 bookedRooms.addEventListener('click', cancelReservation);
 searchForm.addEventListener('click', handleSearchEvents);
-searcgForm.addEventListener('keydown', tabThroughSearch):
+searchForm.addEventListener('keydown', tabThroughSearch);
