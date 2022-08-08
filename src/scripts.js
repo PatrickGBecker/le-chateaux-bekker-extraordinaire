@@ -38,7 +38,7 @@ let customer;
 
 const createHotel = () => {
   Promise.all(data.getAllHotelData())
-    .then(values => hotel = new Hotel("overLook", values[0], values[1], values[2]));
+    .then(values => hotel = new Hotel("chateauxBekker", values[0], values[1], values[2]));
 };
 
 const toggleHidden = (element, hidden = 'true') => element.setAttribute('aria-hidden', hidden);
@@ -192,3 +192,100 @@ const storeBookingData = (date, data) => {
   };
   return JSON.stringify(bookingData);
 }
+
+const makeReservation = (e) => {
+  if (e.target.className.includes(button)) {
+    data.bookRoom(JSON.parse(e.target.dataset.bookingData))
+      .then(data.handleErrors)
+      .then(data => {
+        hotel.bookings.push(data.newBooking)
+        displayRooms();
+        displayRewardsEarned();
+        displayUserMessage(`Booking for ${fixDate(data.newBooking.date)} complete.
+        Confirmation number - ${data.newBooking.id}`)
+      })
+      .catch(err => alert(err));
+    e.target.parentElement.remove();
+  }
+}
+
+const updateBookings = () => {
+  Promise.resolve(data.getData('bookings'))
+    .then(values => {
+      hotel.bookings = values;
+      displayRooms();
+      displayRewardsEarned();
+    });
+}
+
+const cancelReservation = (e) => {
+  if (e.target.className.includes('button')) {
+    const id = e.target.parentElement.dataset.bookingID;
+    data.cancelBooking(id)
+      .then(data.handleErrors)
+      .then(() => {
+        updateBookings();
+        displayUserMessage(`Your reservation has been canceled.`);
+      })
+      .catch(err => alert(err));
+  }
+}
+
+const findUserID = (userName) => userName.replace("chateaux bekker", "");
+
+const showMain = () => {
+  const mainElements = document.querySelectorAll('.main-page');
+  const loginPage = document.getElementById('loginPage');
+  toggleHidden(loginPage);
+  mainElements.forEach(element => toggleHidden(element, 'false'));
+}
+
+const showLoginError = () => {
+  const errorMessage = document.getElementById('errorMessage');
+  toggleHidden(errorMessage, 'false');
+}
+
+const handleSearchEvents = (e) => {
+  hideSearchDropDowns();
+  if (e.target.closest('.clickable')) {
+    const target = e.target.closest('.clickable').childNodes[3];
+    toggleHidden(target, 'false');
+  }
+}
+
+const closeSearchBar = (e) => {
+  if (e.target.className.includes('exit-button')) {
+    toggleHidden(userMessage);
+  }
+  if (!e.target.closest('.search-bar')) {
+    hideSearchDropDowns();
+  }
+}
+
+const hideSearchDropDowns = () => {
+  const menus = document.querySelectorAll('.drop-down-menu');
+  menus.forEach(element => toggleHidden(element));
+}
+
+const hideOnScroll = () => {
+  toggleHidden(userMessage);
+  hideSearchDropDowns();
+}
+
+const tabThroughSearch = () => {
+  if (e.keyCode === 13) {
+    hideSearchDropDowns();
+    const target = e.target.closest('.clickable').childNodes[3];
+    toggleHidden(target, 'false');
+  }
+}
+
+window.onload = createHotel();
+loginButton.addEventListener('click', createUser);
+window.addEventListener('click', closeSearchBar);
+window.addEventListener('scroll', hideOnScroll);
+searchButton.addEventListener('click', displaySearchResults);
+availableRoomsSection.addEventListener('click', makeReservation);
+bookedRooms.addEventListener('click', cancelReservation);
+searchForm.addEventListener('click', handleSearchEvents);
+searcgForm.addEventListener('keydown', tabThroughSearch):
