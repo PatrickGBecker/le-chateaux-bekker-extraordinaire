@@ -1,22 +1,22 @@
 import chai from 'chai';
 const expect = chai.expect;
-import Guest from '../src/Guest.js';
+import Customer from '../src/Customer.js';
 import data from './test-data';
 import Hotel from '../src/Hotel';
 
-describe('Guest', () => {
-  const guest = new Guest({id: 6, name: 'Fleta Schuppe'});
+describe('Customer', () => {
+  const customer = new Customer({id: 6, name: 'Fleta Schuppe'});
   const chateauxBekker = new Hotel('Chateaux Bekker', data.rooms, data.bookings, data.customers);
 
 
-  it('Should instantiate a new Guest', () => {
-    expect(guest).to.be.an.instanceOf(Guest);
-    expect(Guest).to.be.a('function')
+  it('Should instantiate a new Customer', () => {
+    expect(customer).to.be.an.instanceOf(Customer);
+    expect(customer).to.be.a('function')
   });
 
   it('Should have an id and name', () => {
-    expect(guest.name).to.deep.equal('Fleta Schuppe');
-    expect(guest.id).to.deep.equal(6)
+    expect(customer.name).to.deep.equal('Fleta Schuppe');
+    expect(customer.id).to.deep.equal(6)
   });
 
   it('Should be able to see their booking history', () => {
@@ -43,13 +43,13 @@ describe('Guest', () => {
         roomServiceCharges: []
       },
     ]
-    expect(guest.returnBookingHistory(chateauxBekker)).to.be.an('array');
-    expect(guest.returnBookingHistory(chateauxBekker)).to.deep.equal(roomsBooked);
+    expect(customer.returnBookingHistory(chateauxBekker)).to.be.an('array');
+    expect(customer.returnBookingHistory(chateauxBekker)).to.deep.equal(roomsBooked);
   })
 
   it('Should let you know if you have not booked rooms', () => {
-    const guest = new Guest({id: 33, name: "Monsieur Patric Bekker"});
-    expect(guest.returnBookingHistory(chateauxBekker)).to.deep.equal([]);
+    const customer = new Customer({id: 33, name: "Monsieur Patric Bekker"});
+    expect(customer.returnBookingHistory(chateauxBekker)).to.deep.equal([]);
   })
 
 });
