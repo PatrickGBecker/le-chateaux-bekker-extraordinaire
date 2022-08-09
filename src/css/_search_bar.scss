@@ -1,0 +1,83 @@
+  .search-bar {
+    @include flex;
+    position: fixed;
+    border: .5px solid rgb(167, 167, 167);
+    top: 1rem;
+    left: 50%;
+    transform: translate(-50%);
+    height: 7rem;
+    width:80%;
+    max-width: 95rem;
+    min-width: 75rem;
+    background-color: $text-secondary;
+    border-radius: 5rem;
+    z-index:10;
+    box-shadow: $main-drop-shadow;
+
+    &__input{
+      position: relative;
+      padding-left: 3rem;
+      width: 100%;
+      height: 100%;
+      border-radius: 100px;
+      border: none;
+
+      &:hover {
+        background-color: rgba(194, 194, 194, 0.507);
+      }
+      &:focus {
+        box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.36);
+        outline: none;
+        background-color: white;
+      }
+
+      &__header {
+        position: absolute;
+        height: 100%;
+        top: 20%;
+        &--main {
+          display: block;
+        }
+
+        &--sub{
+          display: block;
+        }
+      }
+    }
+
+    &__btn{
+      position:fixed;
+      right: 1%;
+      @include roundButton ('../images/search-icon.png')
+    }
+
+  }
+
+  .drop-down-menu {
+    padding: 3rem;
+    margin-left: -3rem;
+    font-size: 1.4rem;
+    line-height: 3;
+    position: fixed;
+    top: 9rem;
+    background-color: white;
+    height: 25rem;
+    width:24%;
+    border-radius: 2rem;
+    box-shadow: 0 1rem 2rem (rgba(0, 0, 0, 0.2));
+    animation: dropDown 400ms ease-out;
+    transform-origin: top;
+  }
+
+  label {
+    width:fit-content;
+    height: 50%;
+  }
+
+  .date {
+    width: 70rem;
+  }
+
+  .date-label {
+    font-size: 0;
+  }
