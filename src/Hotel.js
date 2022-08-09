@@ -8,7 +8,7 @@ class Hotel {
 
   checkAvailableRooms(checkIn) {
     const today = new Date();
-    today.setHours(0,0,0,0);
+    today.setHours(0, 0, 0, 0);
     if (!checkIn || new Date(checkIn) < today) {
       return false
     }
@@ -18,18 +18,18 @@ class Hotel {
   }
 
   filterRoomsBySearchCriteria(availableRooms, searchInput, type) {
-  if (searchInput.length === 0) {
-    return availableRooms;
-  }
-  const results = searchInput.reduce((foundRooms, keyword) => {
-    availableRooms.forEach(room => {
-      if (room[type].toString() === keyword && !foundRooms.includes(room)) {
-        foundRooms.push(room);
-      }
-    });
-    return foundRooms;
-  }, []);
-  return results;
+    if (searchInput.length === 0) {
+      return availableRooms;
+    }
+    const results = searchInput.reduce((foundRooms, keyword) => {
+      availableRooms.forEach(room => {
+        if (room[type].toString() === keyword && !foundRooms.includes(room)) {
+          foundRooms.push(room);
+        }
+      });
+      return foundRooms;
+    }, []);
+    return results;
   }
 
   returnAllFilteredResults(date, typeOfRoom, sizeOfBed, numberOfBeds) {

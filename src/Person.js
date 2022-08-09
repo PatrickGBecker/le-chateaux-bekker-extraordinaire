@@ -32,7 +32,7 @@ class Person {
    return parseFloat(amountPaid.toFixed(2));
  }
 
- returnPointsEarned(hotel, id = this.id) {
+ returnRewardsEarned(hotel, id = this.id) {
    const amountPaid = this.returnTotalBookingCost(hotel, id);
    return Math.floor(amountPaid / 10);
  }

@@ -1,37 +1,40 @@
-import './css/styles.css';
+import './css/imports.scss';
 import Hotel from './Hotel';
 import Customer from './Customer';
 import data from './data';
 
 
 import './images/monsieur-bekker.png';
-import './images/deluxe-full-room.png';
-import './images/deluxe-king-room.png';
-import './images/deluxe-queen-room.png';
-import './images/deluxe-twin-room.png';
-import './images/double-full-room.png';
-import './images/double-king-room.png';
-import './images/double-queen-room.png';
-import './images/double-twins-room.png';
-import './images/petite-full-room.png';
-import './images/petite-king-room.png';
-import './images/petite-queen-room.png';
-import './images/petite-twin-room.png';
-import './images/royal-full-room.png';
-import './images/royal-king-room.png';
-import './images/royal-queen-room.png';
-import './images/single-full-room.png';
-import './images/single-king-room.png';
-import './images/single-queen-room.png';
-import './images/single-twin-room.png';
+import './images/room-1.png';
+import './images/room-2.png';
+import './images/room-3.png';
+import './images/room-4.png';
+import './images/room-5.png';
+import './images/room-6.png';
+import './images/room-7.png';
+import './images/room-8.png';
+import './images/room-10.png';
+import './images/room-11.png';
+import './images/room-12.png';
+import './images/room-13.png';
+import './images/room-14.png';
+import './images/room-15.png';
+import './images/room-16.png';
+import './images/room-17.png';
+import './images/room-18.png';
+import './images/room-19.png';
+import './images/room-20.png';
+import './images/room-22.png';
+import './images/room-23.png';
+import './images/room-24.png';
+import './images/room-25.png';
 
-
-const searchButton = document.getElementById('searchBtn');
+const searchButton = document.getElementById('searchButton');
 const availableRoomsSection = document.getElementById('availableRooms');
 const bookedRooms = document.getElementById('bookedRooms');
 const searchForm = document.getElementById('searchForm');
 const userMessage = document.getElementById('userMessage');
-const loginButton = document.getElementById('loginBtn');
+const loginButton = document.getElementById('loginButton');
 
 let hotel;
 let customer;
@@ -43,11 +46,12 @@ const createHotel = () => {
 
 const toggleHidden = (element, hidden = 'true') => element.setAttribute('aria-hidden', hidden);
 
-const creatUser = (e) => {
+const createUser = (e) => {
   e.preventDefault();
   const userName = document.getElementById('userNameInput').value;
   Promise.resolve(data.getUserData(parseInt(findUserID(userName)), () => showLoginError()))
     .then(value => {
+      console.log('scripts 51: ', value);
       customer = new Customer(value);
       login();
       displayRooms();
@@ -57,7 +61,7 @@ const creatUser = (e) => {
 
 const login = () => {
   const password = document.getElementById('passwordInput').value;
-  if (password !== 'bekker2021') {
+  if (password !== 'bekker2022') {
     showLoginError();
     return;
   }
@@ -79,8 +83,8 @@ const displayRooms = () => {
     section.className = 'booked-room-card';
     section.tabIndex = "0";
     section.dataset.bookingID = room.bookingID;
-    secetion.innerHTML =
-    `<img src="./images/room-${room.number}.jpg" alt="Hotel room with a bed and desk" class="booked-room-card-img">
+    section.innerHTML =
+    `<img src="./images/room-${room.number}.png" alt="Hotel room with a bed and desk" class="booked-room-card-img">
       <p class="booked-room-card-room-number">Room ${room.number}</p>
       <p class="booked-room-card-date-booked">${fixDate(room.dateBooked)}</p>
       <p class="booked-room-card-type"> ${capitalizeWords(room.roomType)}</p>
@@ -94,7 +98,7 @@ const displayRooms = () => {
 
 const displayRewardsEarned = () => {
   const rewardsEarned = document.getElementById('rewardsEarned');
-  const customerEarned = document.getElementById('cusrtomerName')
+  const customerName = document.getElementById('customerName')
   rewardsEarned.innerText =
     `You have garnered ${customer.returnRewardsEarned(hotel)} rewards
     Total spent ${customer.returnTotalBookingCost(hotel)}`;
@@ -102,7 +106,7 @@ const displayRewardsEarned = () => {
 }
 
 
-const compileForData = (elements) => {
+const compileFormData = (elements) => {
   const data = {
     date: elements[0].value.replace(/-/g, "/"),
     roomType: [],
@@ -113,7 +117,7 @@ const compileForData = (elements) => {
     if (element.className.includes('room-type') && element.checked) {
       data.roomType.push(element.value);
     }
-    if (element.className/includes('bed-size') && element.checked) {
+    if (element.className.includes('bed-size') && element.checked) {
       data.bedSize.push(element.value);
     }
     if (element.className.includes('number-of-beds') && element.checked) {
@@ -126,12 +130,13 @@ const compileForData = (elements) => {
 const retrieveFormValues = () => {
   const values = document.getElementById('searchForm');
   const data = compileFormData(Array.from(values.elements));
+  console.log('scripts130', data);
   return data;
 }
 
 const displaySearchResults = (e) => {
   e.preventDefault();
-  const data = retreiveFormValues() ;
+  const data = retrieveFormValues();
   const results = hotel.returnAllFilteredResults(data.date,
     data.roomType, data.bedSize, data.numBeds);
   const header = results.length === 0 ?
@@ -139,14 +144,14 @@ const displaySearchResults = (e) => {
     : `Room available on ${fixDate(data.date)}`
   if (results) {
     const availableRooms = document.getElementById('availableRooms');
-      availableRooms.innerHTML = "";
-      availableRooms.innerHTML =
+    availableRooms.innerHTML = "";
+    availableRooms.innerHTML =
       `<h2 class=available-rooms-header"> ${header} </h2>`;
-      results.forEach(result => {
-        availableRooms.innerHTML +=
+    results.forEach(result => {
+      availableRooms.innerHTML +=
         `<section class="available-rooms-card">
           <div class="hotel-img-container">
-            <img src="./images/room-${result.number}.jpg" alt="A luxuriouslt decorated, yet inviting room with a heavenly bed" class="available-rooms-card-img">
+            <img src="./images/room-${result.number}.png" alt="A luxuriously decorated, yet inviting room with a heavenly bed" class="available-rooms-card-img">
           </div>
           <div class="available-rooms-info-container">
             <p class="info-left available-rooms-card-room-number">Room ${result.number}</p>
@@ -158,10 +163,10 @@ const displaySearchResults = (e) => {
           </div>
           <button class="available-rooms-card-book-button book-now button" data-booking-data=${storeBookingData(data.date, result)}>Book Now</button>
         </section>`
-      });
-      document.location.href = '#availableRooms';
-      searchForm.reset();
-      return;
+    });
+    document.location.href = '#availableRooms';
+    searchForm.reset();
+    return;
   }
   displayUserMessage('Please enter a valid date.');
 }
@@ -187,7 +192,7 @@ const capitalizeWords = (string) => {
 const storeBookingData = (date, data) => {
   const bookingData = {
     userID: customer.id,
-    date: date,
+    date,
     roomNumber: data.number
   };
   return JSON.stringify(bookingData);

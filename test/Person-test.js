@@ -81,12 +81,12 @@ describe('Person behavior', () => {
   });
 
   it('Should return the amount of money spent at the hotel', () => {
-   expect(person.returnTotalBookingCost(chateauxBekker, 6)).to.equal(1181.59)
-   expect(person.returnTotalBookingCost(chateauxBekker, 33)).to.equal(0)
- });
+    expect(person.returnTotalBookingCost(chateauxBekker, 6)).to.equal(1181.59)
+    expect(person.returnTotalBookingCost(chateauxBekker, 33)).to.equal(0)
+  });
 
- it('Should be able to see how many points are earned', () => {
-   expect(person.returnPointsEarned(chateauxBekker, 6)).to.deep.equal(118);
-   expect(person.returnPointsEarned(chateauxBekker, 33)).to.deep.equal(0);
- })
+  it('Should be able to see how many points are earned', () => {
+    expect(person.returnRewardsEarned(chateauxBekker, 6)).to.deep.equal(118);
+    expect(person.returnRewardsEarned(chateauxBekker, 33)).to.deep.equal(0);
+  })
 })

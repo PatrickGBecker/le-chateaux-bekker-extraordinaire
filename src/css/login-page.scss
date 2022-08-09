@@ -1,18 +1,18 @@
-.login-page__img {
+.login-page-img {
   display: inline-block;
   height: 85vh;
   width: 36%;
   max-width: 48rem;
   overflow: hidden;
-  border: 1px solid $subtle-tones;
+  border: 1px solid //$subtle-tones;
 
-  &__hero-img {
+  &-hero-img {
     height: 100%;
     min-height: 75rem;
   }
 }
 
-.login-page__form-container {
+.login-page-form-container {
   float: right;
   @include flex;
   justify-content: center;
@@ -21,11 +21,11 @@
   height: 85vh;
 }
 
-.login-page__form-container p {
+.login-page-form-container p {
   font-weight: bold;
 }
 
-.login-form__input {
+.login-form-input {
   display: block;
   height: 4.5rem;
   width: 25rem;
@@ -33,13 +33,13 @@
   border-radius: 0.6rem;
 }
 
-.login-page__form__btn {
+.login-page-form-button {
   @include hoverColor(#4caea6);
   color: rgb(41, 41, 41);
 }
 
-.login-error-msg {
-  @extend .login-form__input;
+.login-error-message {
+  @extend .login-form-input;
   color: #fff;
   height: fit-content;
   padding: 1rem;
