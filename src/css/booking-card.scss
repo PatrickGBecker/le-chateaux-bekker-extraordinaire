@@ -1,0 +1,76 @@
+.booked-room__container {
+  display: inline-block;
+  height: 100vh;
+  overflow: scroll;
+  width:69%;
+}
+
+.booked-room__img__container {
+  background-image: $primary-gradient;
+  display: inline-block;
+  height: 100vh;
+  width:30%;
+  overflow: hidden;
+  border-radius: .6rem;
+}
+
+.booked-room__img{
+  height: 100%;
+  min-height: 70rem;
+}
+
+.booked-room__header {
+  margin:3rem 0 3rem 18%;
+}
+.booked-room__card {
+  display: grid;
+  grid-template-columns: 30rem repeat(2, 1fr);
+  grid-template-rows: repeat(3, 3rem) auto;
+  height: fit-content;
+  position: relative;
+  padding: 2.2rem;
+  border-bottom: 2px solid $subtle-tones;
+
+  &__img {
+    grid-row: 1/6;
+    width: 30rem;
+    border-radius: 1rem;
+  }
+
+  &__room-number{
+    grid-column: 2;
+    margin-left: 1.5rem;
+  }
+
+  &__date-booked {
+    @extend .booked-room__card__room-number;
+  }
+
+  &__type {
+    @extend .booked-room__card__room-number;
+  }
+
+  &__number-of-beds {
+    grid-column: 3;
+    grid-row: 2;
+    justify-self: right;
+  }
+
+  &__bed-size{
+    grid-column: 3;
+    grid-row: 1;
+    justify-self: right;
+  }
+  &__btn {
+    @include rectangleBtn;
+    grid-column: 3;
+    grid-row: 5;
+    justify-self: right;
+  }
+
+  &__cost{
+    grid-row: 5;
+    align-self: end;
+    margin-left: 1.5rem;
+  }
+}
