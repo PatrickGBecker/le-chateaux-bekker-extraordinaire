@@ -1,113 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Long+Cang&family=Mansalva&family=Oleo+Script+Swash+Caps&family=Patrick+Hand+SC&display=swap" rel="stylesheet">
-  <title>Le Chateaux Bekker Extraordinaire</title>
-</head>
-<body>
-  <div class="user-msg" id="userMessage" aria-hidden="true">
-    <button class="exit-btn btn" aria-label="Exit" tabindex="0"></button>
-    <h2 class="user-msg__header" id="message"></h2>
-  </div>
-  <form class="search-bar main-page" id="searchForm" aria-hidden="true">
-    <input type="date" class="search-bar__input date" id="dateInput" value="" required>
-    <label for="dateInput" class="date-label">Date</label>
-    <div class="search-bar__input clickable" tabindex="0" aria-role="button">
-      <h3 class="search-bar__input__header">
-        <span class="search-bar__input__header--main">Room Type</span>
-        <span class="search-bar__input__header--sub">Room Preference</span>
-      </h3>
-      <div class="drop-down-menu" aria-hidden="true">
-        <input type="checkbox" class="search-bar__input--room room-type" name="single room" value="single room" id="singleRoom">
-        <label for="singleRoom">Single Room</label><br>
-        <input type="checkbox" class="search-bar__input--room room-type" name="suite" value="suite" id="Suite">
-        <label for="suite">Suite</label><br>
-        <input type="checkbox" class="search-bar-input-room room-type" name="junior suite" value="junior suite" id="juniorSuite">
-        <label for="juniorSuite">Junior Suite</label><br>
-        <input type="checkbox" class="search-bar-input-room room-type" name="residential suite" value="residential suite" id="residentialSuite">
-        <label for="residentialSuite">Residential Suite</label><br>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700&family=Shrikhand&display=swap"
+      rel="stylesheet">
+    <title>Le Chateaux Bekker Extraordinaire</title>
+  </head>
+  <body>
+    <form class="search-bar hidden" id="searchForm">
+      <label for="date"></label>
+      <input type="date" class="search-bar__input date" value="">
+      <div class="search-bar__input">
+        <h3 class="search-bar__input__header">
+          <span class="search-bar__input__header--main">Room Type</span>
+          <span class="search-bar__input__header--sub">Pick a Room Preference</span>
+        </h3>
+        <div class="drop-down-menu">
+          <input type="checkbox" class="search-bar__input--room room-type" name ="single room" value="single room">
+          <label for="single room">Single Room</label><br>
+          <input type="checkbox" class="search-bar__input--room room-type" name="suite" value="suite">
+          <label for="suite">Suite</label><br>
+          <input type="checkbox" class="search-bar__input--room room-type" name="junior suite"
+          value="junior suite">
+          <label for="junior suite">Junior Suite</label><br>
+          <input type="checkbox" class="search-bar__input--room room-type" name="residential suite" value ="residential suite">
+          <label for="resdential suite">Residential Suite</label>
+        </div>
       </div>
-    </div>
-    <div class="search-bar__input clickable" tabindex="0" aria-role="button">
-      <h3 class="search-bar__input__header">
-        <span class="search-bar__input__header--main">Bed Size</span>
-        <span class="search-bar__input__header--sub">Pick Bed Size</span>
-      </h3>
-      <div class="drop-down-menu input" aria-hidden="true">
-        <input type="checkbox" class="search-bar__input--room bed-size" name="twin" value="twin" id="twin">
-        <label for="twin">Twin</label><br>
-        <input type="checkbox" class="search-bar__input--room bed-size" name="full" value="full" id="full">
-        <label for="full">Full</label><br>
-        <input type="checkbox" class="search-bar__input--room bed-size" name="queen" value="queen" id="queen">
-        <label for="queen">Queen</label><br>
-        <input type="checkbox" class="search-bar__input--room bed-size" name="king" value="king" id="king">
-        <label for="king">King</label>
+      <div class="search-bar__input">
+        <h3 class="search-bar__input__header">
+          <span class="search-bar__input__header--main">Bed Size</span>
+          <span class="search-bar__input__header--sub">Which size bed are you looking for?</span>
+        </h3>
+        <div class="drop-down-menu">
+          <input type="checkbox" class="search-bar__input--room bed-size" name="twin" value="twin">
+          <label for="twin">Twin</label><br>
+          <input type="checkbox" class="search-bar__input--room bed-size" name="full" value="full">
+          <label for="full">Full</label><br>
+          <input type="checkbox" class="search-bar__input--room bed-size" name="queen" value="queen">
+          <label for="queen">Queen</label><br>
+          <input type="checkbox" class="search-bar__input--room bed-size" name="king" value="king">
+          <label for="king">King</label>
+        </div>
       </div>
-    </div>
-    <div class="search-bar__input clickable" tabindex="0" aria-role="button">
-      <h3 class="search-bar__input__header">
-        <span class="search-bar__input__header--main">Beds</span>
-        <span class="search-bar__input__header--sub">Beds Per Room</span>
-      </h3>
-      <div class="drop-down-menu input" aria-hidden="true">
-        <input type="checkbox" class="search-bar__input--room number-of-beds" name="1" value="1" id="one">
-        <label for="one">1 Bed</label><br>
-        <input type="checkbox" class="search-bar__input--room number-of-beds" name="2" value="2" id="two">
-        <label for="two">2 Beds</label><br>
+      <div class="search-bar__input">
+        <h3 class="search-bar__input__header">
+          <span class="search-bar__input__header--main">Beds</span>
+          <span class="search-bar__input__header--sub">How many would you like?</span>
+        </h3>
+        <div class="drop-down-menu">
+          <input type="checkbox" class="search-bar__input--room number-of-beds" name="1" value="1">
+          <label for="1">1 Bed</label><br>
+          <input type="checkbox" class="search-bar__input--room number-of-beds" name="2" value="2">
+          <label for="2">2 Beds</label><br>
+        </div>
       </div>
-    </div>
-    <button class="search-bar__btn btn" id="searchBtn" aria-label="search" tabindex="0"></button>
-  </form>
-  <header class="header main-page" aria-hidden="true">
-    <h1 class="header__title">
-      <span class="header__title--main">Le Chateaux Bekker Extraordinaire</span>
-      <span class="header__title--sub">Exuberance is Beauty</span>
-    </h1>
-  </header>
-  <section class="login-page" id="loginPage">
-    <div class="login-page__img">
-        <img src="./images/login-background.png" alt="A majestic chateaux in the Alps mountains" class="login-page__img__hero-img">
-    </div>
-    <div class="login-page__form-container">
-      <h1 class="login-page__header">Welcome Back!<br>Please Login</h1>
-      <p>For demo<br> username: chateaux bekker 1-50<br> password: bekker2022</p>
-      <form class="login-page__form" id="loginForm">
-        <label for="usernameNameInput">
-          <input type="text" class="login-form__input" name="userName" placeholder="Username" id="userNameInput" required>
-        </label>
-        <label for="passwordInput">
-          <input type="password" class="login-form__input" name="password" placeholder="Password" id="passwordInput" required>
-        </label>
-        <input type="Submit" placeholder="Login" class="login-form__input login-page__form__btn bn" id="loginBtn" value="Log In">
-      </form>
-      <h2 class="login-error-msg" id="errorMessage" aria-hidden="true">Please convey the correct login information</h2>
-    </div>
-  </section>
-  <main class="main main-page" aria-hidden="true">
-    <div class="hotel-rewards" tabindex="0">
-      <div class="rewards-container">
-        <h2 class="hotel-rewards__name" id="customerName"></h2>
-        <h2 class="hotel-rewards__header">Your Rewards</h2>
-        <p class="hotel-rewards__earned" id="rewardsEarned"></p>
-      </div>
-      <p class="hotel-rewards__tag-line">
-        Reward yourself by staying with us.<br>Stay with us for more rewards.
-      </p>
-    </div>
-    <div class="available-rooms" id="availableRooms"></div>
-    <div class="booked-rooms">
-      <h1 class="booked-room__header">
-        Your Stays
+      <button class="search-bar__btn btn" id="searchBtn"></button>
+    </form>
+    <header class="header">
+      <h1 class="header__title">
+        <span class="header__title--main">Chateaux Bekker</span>
+        <span class="header__title--sub">Exuberance is Beauty</span>
       </h1>
-      <div class="booked-room__container" id="bookedRooms"></div>
-      <div class="booked-room__img__container">
+    </header>
+    <section class="login-page" hidden>
+      <form class="login-page__form" id="loginForm">
+        <label for="username">
+          <input type="text" name="userName" placeholder="Username" id="userNameInput" required>
+        </label>
+        <label for="password">
+          <input type="text" name="password" placeholder="Password" id="passwordInput" required>
+        </label>
+        <input type="submit" placeholder="Login" class="login-page__form__btn btn" id="loginBtn">
+      </form>
+    </section>
+    <main class="main">
+      <div class="hotel-points" >
+        <div class="points-container">
+          <h2 class="hotel-points__header">Your Points</h2>
+          <p class=hotel-points__points-earned id="pointsEarned"></p>
+        </div>
+        <p class="hotel-points__tag-line">
+          Reward yourself by staying with us.<br>Sta with us for more rewards.
+        </p>
       </div>
-    </div<
-  </main>
-<script src="bundle.js"></script>
-</body>
+      <div class="available-rooms"></div>
+      <div class="booked-rooms">
+        <h1 class="booked-room__header">
+          Previous Bookings
+        </h1>
+        <div class="booked-room__container" id="bookedRooms"></div>
+        <div class="booked-room__img__container">
+        </div>
+
+      </div>
+    </main>
+  </body>
 </html>
