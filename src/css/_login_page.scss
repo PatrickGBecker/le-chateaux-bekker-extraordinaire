@@ -39,8 +39,8 @@ body {
 }
 
 .login-page__form__btn {
-  @include hoverColor(#4caea6);
-  color: rgb(41, 41, 41);
+  @include hoverColor(lavender);
+  color: 	#784283;
 }
 
 .login-error-msg {

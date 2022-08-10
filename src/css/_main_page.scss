@@ -50,8 +50,8 @@ body {
   &__tag-line {
     font-size: 5rem;
     font-weight: 1000;
-    color: $text-secondary;
-    text-shadow: 2px 2px $text-three;
+    color: $text-three;
+    text-shadow: 2px 2px $text-secondary;
     position: absolute;
     left: 10rem;
     top: 15rem;
@@ -64,9 +64,9 @@ body {
   height: 53%;
   width: 20%;
   overflow: hidden;
-  background-color: lavender;
+  background-color: $text-three;
   font-size: 2rem;
-  color: #e5000c;
+  color: $text-secondary;
   position: absolute;
   display: flex;
   flex-direction: column;
