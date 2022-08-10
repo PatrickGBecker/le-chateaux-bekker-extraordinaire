@@ -1,6 +1,6 @@
 const data = {
   getData(type) {
-    return fetch(`https://overlook-hotel.herokuapp.com/api/v1/${type}`)
+    return fetch(`http://localhost:3001/api/v1/${type}`)
       .then(data.handleErrors)
       .then(data => data[type])
       .catch(err => alert(err));
@@ -9,15 +9,15 @@ const data = {
     const dataTypes = ['rooms', 'bookings', 'customers'];
     return dataTypes.map(this.getData);
   },
-  getUserData(customerID, callback) {
+  getUserData(customerID) {
     return fetch(`http://localhost:3001/api/v1/customers/${customerID}`)
-      .then(data.handleErrors)
+      .then(response => response.json())
       .then(data => data)
-      .catch(callback)
+      .catch(err => alert(err))
   },
   handleErrors(response) {
     if (!response.ok) {
-      throw Error('Our apologies, something went wrong. Please try again.');
+      throw Error(response.statusText);
     }
     return response.json()
   }
