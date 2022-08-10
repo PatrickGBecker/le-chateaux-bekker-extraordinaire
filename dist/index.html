@@ -23,14 +23,14 @@
           <span class="search-bar__input__header--sub">Pick a Room Preference</span>
         </h3>
         <div class="drop-down-menu"  aria-hidden="true">
-          <input type="checkbox"  class="search-bar__input--room room-type" name ="single room" value="single room" id="singleRoom">
+          <input type="checkbox"  class="search-bar__input--room room-type" name ="single room" value="single room" id="singleRoom" tabindex="0">
           <label for="singleRoom">Single Room</label><br>
-          <input type="checkbox" class="search-bar__input--room room-type" name="suite" value="suite" id="suite">
+          <input type="checkbox" class="search-bar__input--room room-type" name="suite" value="suite" id="suite" tabindex="0">
           <label for="suite">Suite</label><br>
           <input type="checkbox" class="search-bar__input--room room-type" name="junior suite"
-          value="junior suite" id="juniorSuite">
+          value="junior suite" id="juniorSuite" tabindex="0">
           <label for="juniorSuite">Junior Suite</label><br>
-          <input type="checkbox" class="search-bar__input--room room-type" name="residential suite" value ="residential suite" id="resdentialSuite">
+          <input type="checkbox" class="search-bar__input--room room-type" name="residential suite" value ="residential suite" id="resdentialSuite" tabindex="0">
           <label for="resdentialSuite">Residential Suite</label>
         </div>
       </div>
@@ -39,26 +39,26 @@
           <span class="search-bar__input__header--main">Bed Size</span>
           <span class="search-bar__input__header--sub">Pick a bed size</span>
         </h3>
-        <div class="drop-down-menu input" aria-hidden="true">
-          <input type="checkbox" class="search-bar__input--room bed-size" name="twin" value="twin" id="twin">
+        <select type="dropdown" class="drop-down-menu input" aria-hidden="true">
+          <option class="search-bar__input--room bed-size" name="twin" value="twin" id="twin" tabindex="0">
           <label for="twin">Twin</label><br>
-          <input type="checkbox" class="search-bar__input--room bed-size" name="full" value="full" id="full">
+          <option type="checkbox" class="search-bar__input--room bed-size" name="full" value="full" id="full" tabindex="0">
           <label for="full">Full</label><br>
-          <input type="checkbox" class="search-bar__input--room bed-size" name="queen" value="queen" id="queen">
+          <option type="checkbox" class="search-bar__input--room bed-size" name="queen" value="queen" id="queen" tabindex="0">
           <label for="queen">Queen</label><br>
-          <input type="checkbox" class="search-bar__input--room bed-size" name="king" value="king" id="king">
+          <option type="checkbox" class="search-bar__input--room bed-size" name="king" value="king" id="king" tabindex="0">
           <label for="king">King</label>
-        </div>
+        </select>
       </div>
       <div class="search-bar__input clickable" tabindex="0" aria-role="btn">
         <h3 class="search-bar__input__header">
           <span class="search-bar__input__header--main">Beds</span>
           <span class="search-bar__input__header--sub">Beds per room</span>
         </h3>
-        <div class="drop-down-menu input" aria-hidden="true">
-          <input type="checkbox" class="search-bar__input--room number-of-beds" name="1" value="1" id="one">
+        <select type="dropdown" class="drop-down-menu input" aria-hidden="true">
+          <option type="checkbox" class="search-bar__input--room number-of-beds" name="1" value="1" id="one" tabindex="0">
           <label for="one">1 Bed</label><br>
-          <input type="checkbox" class="search-bar__input--room number-of-beds" name="2" value="2" id="two">
+          <option type="checkbox" class="search-bar__input--room number-of-beds" name="2" value="2" id="two" tabindex="0">
           <label for="two">2 Beds</label><br>
         </div>
       </div>
