@@ -25,7 +25,7 @@ const data = {
     })
   },
   cancelBooking(id) {
-    return fetch('http://localhost:3001/api/v1/bookings' + id, {
+    return fetch('http://localhost:3001/api/v1/bookings/' + id, {
       method: 'DELETE',
     })
   },
