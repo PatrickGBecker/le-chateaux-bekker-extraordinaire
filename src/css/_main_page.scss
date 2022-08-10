@@ -62,18 +62,18 @@ body {
 
 .rewards-container {
   height: 53%;
-  width: 19%;
+  width: 20%;
   overflow: hidden;
-  border: 1px solid $subtle-tones;
-  background-image: url('../images/monsieur-bekker.png');
+  background-color: lavender;
   font-size: 2rem;
   color: #e5000c;
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  right: 20%;
+  right: 15%;
   z-index:2;
+  clip-path: circle(300px at 300px 300px);
 }
 
 [aria-hidden="true"] {
