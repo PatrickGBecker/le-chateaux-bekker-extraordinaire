@@ -3,7 +3,8 @@ import Hotel from './Hotel';
 import Customer from './Customer';
 import data from './data';
 
-
+import './images/exit-icon.png';
+import './images/search-icon.png'
 import './images/monsieur-bekker.png';
 import './images/room-1.png';
 import './images/room-2.png';
@@ -24,17 +25,18 @@ import './images/room-17.png';
 import './images/room-18.png';
 import './images/room-19.png';
 import './images/room-20.png';
+import './images/room-21.png';
 import './images/room-22.png';
 import './images/room-23.png';
 import './images/room-24.png';
 import './images/room-25.png';
 
-const searchButton = document.getElementById('searchButton');
+const searchButton = document.getElementById('searchBtn');
 const availableRoomsSection = document.getElementById('availableRooms');
 const bookedRooms = document.getElementById('bookedRooms');
 const searchForm = document.getElementById('searchForm');
 const userMessage = document.getElementById('userMessage');
-const loginButton = document.getElementById('loginButton');
+const loginButton = document.getElementById('loginBtn');
 
 let hotel;
 let customer;
@@ -51,7 +53,6 @@ const createUser = (e) => {
   const userName = document.getElementById('userNameInput').value;
   Promise.resolve(data.getUserData(parseInt(findUserID(userName)), () => showLoginError()))
     .then(value => {
-      console.log('scripts 51: ', value);
       customer = new Customer(value);
       login();
       displayRooms();
@@ -80,18 +81,18 @@ const displayRooms = () => {
   bookedRooms.innerHTML = '';
   customer.organizeBookingsByDate(hotel).forEach(room => {
     const section = document.createElement('section');
-    section.className = 'booked-room-card';
+    section.className = 'booked-room__card';
     section.tabIndex = "0";
     section.dataset.bookingID = room.bookingID;
     section.innerHTML =
-    `<img src="./images/room-${room.number}.png" alt="Hotel room with a bed and desk" class="booked-room-card-img">
-      <p class="booked-room-card-room-number">Room ${room.number}</p>
-      <p class="booked-room-card-date-booked">${fixDate(room.dateBooked)}</p>
-      <p class="booked-room-card-type"> ${capitalizeWords(room.roomType)}</p>
-      <p class="booked-room-card-bed-size">Bed Size ${capitalizeWords(room.bedSize)}</p>
-      <p class="booked-room-card-number-of-beds">Beds: ${room.numBeds}</p>
-      <p class="booked-room-card-cost">${room.costPerNight} / Night</p>
-      <button class="booked-room-ard-button button" ${disableButton(room.dateBooked)}>Cancel Reservation</button>`;
+    `<img src="./images/room-${room.number}.png" alt="Hotel room with a bed and desk" class="booked-room__card__img">
+      <p class="booked-room__card__room-number">Room ${room.number}</p>
+      <p class="booked-room__card__date-booked">${fixDate(room.dateBooked)}</p>
+      <p class="booked-room__card__type"> ${capitalizeWords(room.roomType)}</p>
+      <p class="booked-room__card__bed-size">Bed Size ${capitalizeWords(room.bedSize)}</p>
+      <p class="booked-room__card__number-of-beds">Beds: ${room.numBeds}</p>
+      <p class="booked-room__card__cost">${room.costPerNight} / Night</p>
+      <button class="booked-room__card__btn btn" ${disableButton(room.dateBooked)}>Cancel Reservation</button>`;
     bookedRooms.append(section);
   });
 };
@@ -100,8 +101,8 @@ const displayRewardsEarned = () => {
   const rewardsEarned = document.getElementById('rewardsEarned');
   const customerName = document.getElementById('customerName')
   rewardsEarned.innerText =
-    `You have garnered ${customer.returnRewardsEarned(hotel)} rewards
-    Total spent ${customer.returnTotalBookingCost(hotel)}`;
+    `You have garnered ${customer.returnRewardsEarned(hotel)} points
+    Total spent $${customer.returnTotalBookingCost(hotel)}`;
   customerName.innerText = `Welcome back ${customer.name.split('')[0]}!`
 }
 
@@ -130,7 +131,6 @@ const compileFormData = (elements) => {
 const retrieveFormValues = () => {
   const values = document.getElementById('searchForm');
   const data = compileFormData(Array.from(values.elements));
-  console.log('scripts130', data);
   return data;
 }
 
@@ -146,22 +146,22 @@ const displaySearchResults = (e) => {
     const availableRooms = document.getElementById('availableRooms');
     availableRooms.innerHTML = "";
     availableRooms.innerHTML =
-      `<h2 class=available-rooms-header"> ${header} </h2>`;
+      `<h2 class=available-rooms__header"> ${header} </h2>`;
     results.forEach(result => {
       availableRooms.innerHTML +=
-        `<section class="available-rooms-card">
+        `<section class="available-rooms__card">
           <div class="hotel-img-container">
-            <img src="./images/room-${result.number}.png" alt="A luxuriously decorated, yet inviting room with a heavenly bed" class="available-rooms-card-img">
+            <img src="./images/room-${result.number}.png" alt="A luxuriously decorated, yet inviting room with a heavenly bed" class="available-rooms__card__img">
           </div>
-          <div class="available-rooms-info-container">
-            <p class="info-left available-rooms-card-room-number">Room ${result.number}</p>
-            <p class="info-right available-rooms-card-bed-size">Bed Size - ${capitalizeWords(result.bedSize)}</p>
-            <p class="info-left available-rooms-card-room-type">${capitalizeWords(result.roomType)}</p>
-            <p class="info-right available-rooms-card-number-of-beds">Total Beds - ${result.numBeds}</p>
-            <p class="info-center available-rooms-card-has-bidet">${result.bidet ? "Complimentary Bidet!" : ""}</p>
-            <p class="info-center available-rooms-card-cost-per-night">$${result.costPerNight} / Per Night</p>
+          <div class="available-rooms__info-container">
+            <p class="info-left available-rooms__card__room-number">Room ${result.number}</p>
+            <p class="info-right available-rooms__card__bed-size">Bed Size - ${capitalizeWords(result.bedSize)}</p>
+            <p class="info-left available-rooms__card__room-type">${capitalizeWords(result.roomType)}</p>
+            <p class="info-right available-rooms__card__number-of-beds">Total Beds - ${result.numBeds}</p>
+            <p class="info-center available-rooms__card__has-bidet">${result.bidet ? "Complimentary Bidet!" : ""}</p>
+            <p class="info-center available-rooms__card__cost-per-night">$${result.costPerNight} / Per Night</p>
           </div>
-          <button class="available-rooms-card-book-button book-now button" data-booking-data=${storeBookingData(data.date, result)}>Book Now</button>
+          <button class="available-rooms__card__book-btn book-now btn" data-booking-data=${storeBookingData(data.date, result)}>Book Now</button>
         </section>`
     });
     document.location.href = '#availableRooms';
@@ -171,7 +171,7 @@ const displaySearchResults = (e) => {
   displayUserMessage('Please enter a valid date.');
 }
 const displayUserMessage = (content) => {
-  const message = document.getElementById('messsage');
+  const message = document.getElementById('message');
   message.innerText = content;
   toggleHidden(userMessage, 'false');
 }
@@ -192,14 +192,14 @@ const capitalizeWords = (string) => {
 const storeBookingData = (date, data) => {
   const bookingData = {
     userID: customer.id,
-    date,
+    date: date,
     roomNumber: data.number
   };
   return JSON.stringify(bookingData);
 }
 
 const makeReservation = (e) => {
-  if (e.target.className.includes(button)) {
+  if (e.target.className.includes('btn')) {
     data.bookRoom(JSON.parse(e.target.dataset.bookingData))
       .then(data.handleErrors)
       .then(data => {
@@ -224,7 +224,7 @@ const updateBookings = () => {
 }
 
 const cancelReservation = (e) => {
-  if (e.target.className.includes('button')) {
+  if (e.target.className.includes('btn')) {
     const id = e.target.parentElement.dataset.bookingID;
     data.cancelBooking(id)
       .then(data.handleErrors)
@@ -259,7 +259,7 @@ const handleSearchEvents = (e) => {
 }
 
 const closeSearchBar = (e) => {
-  if (e.target.className.includes('exit-button')) {
+  if (e.target.className.includes('exit-btn')) {
     toggleHidden(userMessage);
   }
   if (!e.target.closest('.search-bar')) {
