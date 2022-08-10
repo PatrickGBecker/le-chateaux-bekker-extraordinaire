@@ -58,7 +58,7 @@ const createUser = (e) => {
       customer = new Customer(value);
       login();
       displayRooms();
-      displayPointsEarned();
+      displayRewardsEarned();
     })
 };
 
@@ -98,10 +98,10 @@ const displayRooms = () => {
   });
 };
 
-const displayPointsEarned = () => {
-  const pointsEarned = document.getElementById('pointsEarned');
-  pointsEarned.innerText =
-    `You've earned ${customer.returnPointsEarned(hotel)} points
+const displayRewardsEarned = () => {
+  const rewardsEarned = document.getElementById('rewardsEarned');
+  rewardsEarned.innerText =
+    `You've earned ${customer.returnRewardsEarned(hotel)} points
     Total spent ${customer.returnTotalBookingCost(hotel)}`;
 }
 
@@ -157,6 +157,8 @@ const displaySearchResults = (e) => {
 }
 
 const storeBookingData = (date, data) => {
+  console.log('date: ', date);
+  console.log('data: ', data);
   const bookingData = {
     userID: customer.id,
     date: date,
@@ -172,7 +174,7 @@ const makeReservation = (e) => {
       .then(data => {
           hotel.bookings.push(data.newBooking)
           displayRooms();
-          displayPointsEarned();
+          displayRewardsEarned();
       })
       .catch(err => alert(err));
     e.target.parentElement.remove();
@@ -191,7 +193,7 @@ const cancelReservation = (e) => {
     .then(values => {
       hotel.bookings = values;
       displayRooms();
-      displayPointsEarned();
+      displayRewardsEarned();
     });
 }
 
@@ -230,6 +232,7 @@ const hideSearchDropDowns = () => {
   const menus = document.querySelectorAll('.drop-down-menu')
   menus.forEach(element => element.setAttribute('aria-hidden', 'true'))
 }
+
 
 document.getElementById('loginBtn').addEventListener('click', createUser)
 window.onload = () =>  createHotel();

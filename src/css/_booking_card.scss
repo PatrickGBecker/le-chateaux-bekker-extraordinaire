@@ -5,6 +5,15 @@
   width:60%;
 }
 
+.booked-room__img__container {
+  background-image: $primary-gradient;
+  display: inline-block;
+  height: 100vh;
+  width:39%;
+  overflow: hidden;
+  border-radius: .6rem;
+}
+
 .booked-room__img{
   height:100vh;
 }

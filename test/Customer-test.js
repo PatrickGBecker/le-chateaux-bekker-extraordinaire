@@ -11,7 +11,7 @@ describe('Customer', () => {
 
   it('Should instantiate a new Customer', () => {
     expect(customer).to.be.an.instanceOf(Customer);
-    expect(customer).to.be.a('function')
+    expect(Customer).to.be.a('function')
   });
 
   it('Should have an id and name', () => {
