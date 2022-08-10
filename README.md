@@ -1,90 +1,86 @@
-# Webpack Starter Kit
+# Overlook Hotel
 
-## Clone This Repo
+## Contributors
+* [Patrick Becker](https://github.com/PatrickGBecker)
+
+## Deployed Site
+
+[Le Chateaux Bekker Extraordinaire](https://patrickgbecker.github.io/le-chateaux-bekker-extraordinaire/)
+username: chateaux bekker (a number 1 - 50)
+password: bekker2022
 
 
-## Setup
+## Table of Contents
 
-After one person has gone through the steps of cloning down this repo and editing the remote, everyone should clone down the repo.
+- [About the Project](#about-the-project)
+- [Project Goals](#project-goals)
+- [Feature](#features)
+  - [User Login](#user-login)
+  - [Dashboard](#dashboard)
+  - [Search](#search)
+  - [Canceling Reservations](#canceling-reservations)
+- [Accessibility](#accessibility)
+- [Responsive Design](#responsive-design)
+- [Future Considerations](#future-considerations)
+- [Technologies Used](#technologies-used)
+- [Contact](#contact)
 
-Then install the library dependencies. Run:
+## About The Project
+Chateaux Bekker is a web app based on the fictional Grand Budapest Hotel in the Wes Anderson film. Users have to ability to view previously booked rooms, and book a room for a future date.   
 
-```bash
-npm install
-```
+## Project Goals
+1. Make network requests to API endpoints GET, POST and DELETE data.
+2. Create an intuitive design that is easy to navigate.
+3. Make the app completely accessible by keyboard.
+4. Utilize SASS to implement DRY css.
+5. Implement CSS animations.
+5. Responsive design for cross screen compatibility.
 
-To verify that it is setup correctly, run `npm start` in your terminal. Go to `http://localhost:8080/` and you should see a page with the Turing logo image and a beautiful gradient background. If that's the case, you're good to go. Enter `control + c` in your terminal to stop the server at any time.
+## Features
 
-## Where to Add Your Code
+### User Login
+On page load the user must login. The username is overlook(any number between 1-50) eg. chateaux bekker 1 - 50.
+All users log in with password bekker2022.
+The overlook API hold data for 50 users.
 
-### JavaScript
+### Dashboard
+Upon logging in the user is able to see how many points they have earned and the amount of money they have spent on all bookings.  Users can also view a list of all bookings past and upcoming.
 
-You have to be very intentional with where you add your feature code. This repo uses a tool called [webpack](https://webpack.js.org/) to combine many JavaScript files into one big file. Webpack enables you to have many, separate JavaScript files to keep your code organized and readable. Webpack expects all of your code files to be in a specific place, or else it doesn't know how to combine them all behind the scenes.
+### Search
+Users have the ability to search and book new hotel rooms utilizing the search bar. All that is needed to perform a search is a future date.  If the user would like to narrow search results they can filter by type, bed size, and amount of rooms.  
 
-**Create all of your feature code files in the `src` directory.**
+### Canceling Reservations
+If a customer would like to cancel upcoming reservations they have the ability to in their 'bookings' section by clicking the 'cancel reservation' button.
 
-Since code is separated into multiple files, you need to use the `import` and `export` syntax to share code across file.
+## Accessibility
+This is fully accessible with the use of a keyboard. Use the tab key to travel to each relevant section. The space bar must be used to check boxes in the search bar.
 
-Here is a video that walks through some information about [import and export](https://www.youtube.com/watch?v=_3oSWwapPKQ). There are a lot of resources out there about `import` and `export`, and resources will sometimes call them `ES6 modules`. It's something you will see in React and beyond.
+## Responsive Design
+Responsive design was considered for desktop, tablet and mobile view.
 
-### HTML
+## Future Considerations
+* Allow the user to rebook a room from their past history.section. Click a button to see what days the room is available.
+* Redesign the search bar for mobile.
+* Replace the web API Date picker with a custom date picker for cross browser compatibility.
+* Allow for a manager to log in.
+* Build a manager dashboard to display hotel stats and available rooms.
+* Allow managers to book a behalf of customers.
 
-Add the HTML you need in the `index.html` file in the `./dist` directory. There is some boilerplate HTML that exists from the start that you can modify.
+## Technologies Used
 
-### Images
+- [![JavaScript](https://img.shields.io/badge/javascript%20-%23323330.svg?&style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)](https://www.javascript.com/)
 
-Add your image files in the `src/images` directory. Similar to CSS files, you need to `import` image files in the JavaScript entry file (`scripts.js`). Then go into the HTML and add an `img` element with the `src` attribute pointing to the `images` directory. There is an example in the `index.html` file for you to see.
+- ![HTML5](https://img.shields.io/badge/html5%20-%23E34F26.svg?&style=for-the-badge&logo=html5&logoColor=white)
 
-## How to View Your Code in Action
+- ![SASS](https://img.shields.io/badge/SASS%20-hotpink.svg?&style=for-the-badge&logo=SASS&logoColor=white)
 
-In the terminal, run:
+- ![Webpack](https://img.shields.io/badge/webpack%20-%238DD6F9.svg?&style=for-the-badge&logo=webpack&logoColor=black)
 
-```bash
-npm start
-```
+- ![Mocha](https://img.shields.io/badge/-mocha-%238D6748?&style=for-the-badge&logo=mocha&logoColor=white)
 
-You will see a bunch of lines output to your terminal. One of those lines will be something like:
+- ![Mocha](https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white)
 
-```bash
-Project is running at http://localhost:8080/
-```
-
-Go to `http://localhost:8080/` in your browser to view your code running in the browser.
-
----
-
-## Test Files Organization
-
-Similar to feature code, your test code needs to be put in a specific place for it to run successfully.
-
-**Put all of your test files in the `test` directory.** As a convention, all test filenames should end with `-test.js`. For instance: `box-test.js`.
-
-## Running Your Tests
-
-Run your test suite using the command:
-
-```bash
-npm test
-```
-
-The test results will output to the terminal.
-
----
-
-## Linting Your Code
-
-Run the command in your terminal `npm run lint` to run the linter on your JavaScript code. There will be errors and warnings right from the start in this starter kit - the linter is still running successfully.
-
-Your linter will look at the JavaScript files you have within the `src` directory and the `test` directory.
-
-## Webpack?
-
-If you look in the `package.json` file, you'll see one of the library dependencies called `webpack`. If you're interested in learning more about what Webpack is and how it works behind the scenes, take a look through the [Webpack configuration documentation](https://webpack.js.org/concepts/).
-
-## Deploying to GitHub Pages
-
-_If you are finished with the functionality and testing of your project_, then you can consider deploying your project to the web! This way anyone can play it without cloning down your repo.
-
-[GitHub Pages](https://pages.github.com/) is a great way to deploy your project to the web. Don't worry about this until your project is free of bugs and well tested!
-
-If you _are_ done, you can follow [this procedure](./gh-pages-procedure.md) to get your project live on GitHub Pages.
+## Contact
+<!--Personal Definitions -->
+[linkedin3]: https://www.linkedin.com/in/patrick-becker-1960ba7a
+[github3]: https://github.com/PatrickGBecker
