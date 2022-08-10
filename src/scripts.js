@@ -5,7 +5,7 @@ import data from './data';
 
 import './images/chateaux-bekker.png';
 import './images/search-icon.png';
-import './images/room-1.jpg';
+import './images/room-1.png';
 
 const searchButton = document.getElementById('searchBtn')
 
