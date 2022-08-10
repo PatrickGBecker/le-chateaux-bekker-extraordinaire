@@ -1,14 +1,14 @@
 body {
-  font-family: 'Noto Sans TC', sans-serif;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
   font-weight: 400;
   line-height: 1.7;
-  color:$text-primary;
+  color: $text-three;
 }
 
 .header__title {
   color:$text-secondary;
   text-transform: uppercase;
-  font-family: 'Shrikhand', cursive;
+  font-family: 'Zen Kaku Gothic Antique', cursive;
 
   &--main{
     display: block;
@@ -41,7 +41,7 @@ body {
 
 // Customer DashBoard
 
-.hotel-points {
+.hotel-rewards {
 
   &__header {
     font-size: 3rem;
@@ -53,7 +53,7 @@ body {
   }
 
   &__tag-line {
-    font-family: 'Shrikhand', cursive;
+    font-family: 'Zen Kaku Gothic Antique', cursive;
     font-weight: 400;
     font-size: 2.5rem;
     letter-spacing: .2rem;

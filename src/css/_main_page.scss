@@ -1,3 +1,7 @@
+body {
+  background-color: chromatic-gradient(pink, purple);
+}
+
 .header {
   position: relative;
   width: 100%;
@@ -6,9 +10,11 @@
   background-image: $primary-gradient, url('../images/chateaux-bekker.png');
   background-size: cover;
   background-position:bottom;
-  //clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+  clip-path: ellipse(50% 50% at 50% 50%);
 
   &__title {
+    color:$text-secondary;
+    box-shadow: $main-drop-shadow;
     backface-visibility: hidden;
     @include center(50%, 50%);
     text-align:center;
@@ -28,46 +34,46 @@
   min-height: fit-content;
   height: 80rem;
   width: 100%;
-  text-align: right;
+  text-align: center;
   margin-top: 8rem;
 
   &__name {
-     margin-bottom: 1rem;
+     margin-top: 40%;
+     text-shadow: 2px 2px $text-primary;
   }
 
   &__header {
-    margin-bottom: 1.5rem;
-  }
-
-  &__img {
-    @include center(10%, 15%);
-    transform: translate(0,0);
-    background-color: linear-gradient(0deg, rgba(0, 0, 0, 0.568), rgba(168, 168, 168, 0.267));
-    width: 70%;
-    border-radius: 6px;
+    margin-top: 30%;
+    text-shadow: 2px 2px $text-primary;
   }
 
   &__tag-line {
+    font-size: 5rem;
+    font-weight: 1000;
+    color: $text-secondary;
+    text-shadow: 2px 2px $text-three;
     position: absolute;
-    left: 0;
+    left: 10rem;
     top: 15rem;
-    text-align: left;
+    text-align: center;
     z-index: 5;
   }
 }
 
 .rewards-container {
+  height: 53%;
+  width: 19%;
+  overflow: hidden;
+  border: 1px solid $subtle-tones;
+  background-image: url('../images/monsieur-bekker.png');
+  font-size: 2rem;
+  color: #e5000c;
   position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 30rem;
-  height: 30rem;
-  right: 8%;
-  background-color: #60AF8A;
-  padding:3rem;
-  z-index:5;
-  border-radius: 50% 20% 50% 40%
+  right: 20%;
+  z-index:2;
 }
 
 [aria-hidden="true"] {

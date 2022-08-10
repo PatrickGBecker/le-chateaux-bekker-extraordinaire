@@ -3,6 +3,8 @@ import Hotel from './Hotel';
 import Customer from './Customer';
 import data from './data';
 
+import './images/login-background.png';
+import './images/mountain-backdrop.png';
 import './images/exit-icon.png';
 import './images/search-icon.png'
 import './images/monsieur-bekker.png';
@@ -14,6 +16,7 @@ import './images/room-5.png';
 import './images/room-6.png';
 import './images/room-7.png';
 import './images/room-8.png';
+import './images/room-9.png';
 import './images/room-10.png';
 import './images/room-11.png';
 import './images/room-12.png';

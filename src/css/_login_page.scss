@@ -1,8 +1,13 @@
+body {
+  background-image: radial-gradient(pink, lavender);
+}
+
 .login-page__img {
   display: inline-block;
   height: 85vh;
-  width: 36%;
+  width: 100%;
   max-width: 48rem;
+  margin-left: 10%;
   overflow: hidden;
   border: 1px solid $subtle-tones;
 
