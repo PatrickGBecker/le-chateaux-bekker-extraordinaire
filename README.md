@@ -39,7 +39,7 @@ Chateaux Bekker is a web app based on the fictional Grand Budapest Hotel in the 
 ## Features
 
 ### User Login
-On page load the user must login. The username is overlook(any number between 1-50) eg. chateaux bekker 1 - 50.
+On page load the user must login. The username is chateaux bekker (any number between 1-50) eg. chateaux bekker 16.
 All users log in with password bekker2022.
 The overlook API hold data for 50 users.
 
@@ -81,6 +81,5 @@ Responsive design was considered for desktop, tablet and mobile view.
 - ![Mocha](https://img.shields.io/badge/node.js%20-%2343853D.svg?&style=for-the-badge&logo=node.js&logoColor=white)
 
 ## Contact
-<!--Personal Definitions -->
 [linkedin3]: https://www.linkedin.com/in/patrick-becker-1960ba7a
 [github3]: https://github.com/PatrickGBecker
