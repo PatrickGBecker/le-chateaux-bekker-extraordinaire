@@ -1,4 +1,4 @@
-# Overlook Hotel
+# Le Chateaux Bekker Extraordinaire
 
 ## Contributors
 * [Patrick Becker](https://github.com/PatrickGBecker)
