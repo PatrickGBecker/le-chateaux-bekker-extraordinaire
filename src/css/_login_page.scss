@@ -39,14 +39,14 @@ body {
 }
 
 .login-page__form__btn {
-  @include hoverColor(lavender);
-  color: 	#784283;
+  @include hoverColor(#784283);
+  color: 	lavender;
 }
 
 .login-error-msg {
   @extend .login-form__input;
-  color: #fff;
+  color: #784283;
   height: fit-content;
   padding: 1rem;
-  background-color: #ff0033;
+  background-color: white;
 }
